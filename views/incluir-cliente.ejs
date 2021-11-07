@@ -1,0 +1,49 @@
+<%- include('header'); %>
+<div style="overflow: hidden;" id="index" class="container">
+  <div class="row">
+    <div class="col-md-5">
+      <h2>Dados do Cliente</h1>
+      <form action="/incluir-cliente" method="POST" enctype="application/x-www-form-urlencoded">
+        <div class="form-floating mb-2">
+          <input type="text" name="nome" class="form-control" id="floatingInput" placeholder="name@example.com">
+          <label for="floatingInput">Nome ou Razão Social</label>
+        </div>
+        <div class="form-floating mb-2">
+          <input type="text" name="cnpj_cpf" class="form-control" id="floatingPassword" placeholder="Password">
+          <label for="floatingInput">CPF ou CNPJ</label>
+        </div>
+        <div class="form-floating mb-2">
+          <input type="text" name="telefone" class="form-control" id="floatingPassword" placeholder="Password">
+          <label for="floatingInput">Telefone</label>
+        </div>
+        <div class="form-floating mb-2">
+          <input type="email" name="email" class="form-control" id="floatingPassword" placeholder="Password">
+          <label for="floatingInput">E-mail</label>
+        </div>
+        <div class="form-floating mb-2">
+          <input type="text" name="contato" class="form-control" id="floatingPassword" placeholder="Password">
+          <label for="floatingInput">Contato</label>
+        </div>
+        <div class="form-floating mb-2">
+          <input type="date" name="data_cadastro" class="form-control" id="floatingPassword" placeholder="Password">
+          <label for="floatingInput">Data da Entrada</label>
+        </div>
+        <label for="floati">Cliente Ativo ?</label>
+        <div class="form-check">
+          <input value="NÃO" class="form-check-input" type="radio" name="ativo" id="radio-ativo">
+          <label class="form-check-label" for="flexRadioDefault1">
+            Não
+          </label>
+        </div>
+        <div class="form-check">
+          <input value="SIM" class="form-check-input" type="radio" name="ativo" id="radio-inativo" checked>
+          <label class="form-check-label" for="flexRadioDefault2">
+            Sim
+          </label>
+        </div>
+        <button class="btn btn-success">Incluir Cliente</button>
+      </form>
+    </div>
+  </div>
+</div>
+<%- include('footer'); %>

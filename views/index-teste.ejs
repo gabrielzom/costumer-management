@@ -1,0 +1,52 @@
+<%- include('header'); %>
+<div id="index" class="container">
+  <br><br>
+  <h2>Historico do Cliente <%=cliente[0].nome %></h2>
+  <hr>
+  <h1></h1>
+  <h1><%= %></h1>
+<table id="minhaTabela" class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Informações</th>
+        <th scope="col">Data Pagamento</th>
+        <th scope="col">Valor</th>
+        <th scope="col">E-mail</th>
+        <th scope="col">Telefone</th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+
+    <% for(var i=0; i<Object.keys(historico).length; i++) { %>
+      <tr>
+        <th value="" scope="row"><%= historico[0].id %></th>
+        <td><%= historico[0].informacoes %></td>
+        <td><%= historico[0].data_pagamento %></td>
+        <td><%= Number(historico[0].valor).toLocaleString('pt-br', {
+          style: 'currency',
+          currency: 'BRL'
+        }) %>
+        </td>
+        <td><%= cliente[0].email %></td>
+        <td><%= cliente[0].telefone %></td>
+          <td>
+            <a href="/<%=historico[0].id %>">
+              <button type="submit" class="btn btn-warning">Editar</button>
+            </a>
+          </td>
+
+          <td>
+            <form action="/<%=historico[0].id %>?_method=DELETE" method="POST" enctype="application/x-www-form-urlencoded">
+              <button type="submit" class="btn btn-danger">Excluir</button>
+            </form>
+          </td>
+      </tr>
+    <% } %>
+    </tbody>
+  </table>
+  <a href="/incluir-historico"><button type="submit" class="btn btn-success">Incluir no Histórico</button></a>
+</div>
+<%- include('footer'); %>

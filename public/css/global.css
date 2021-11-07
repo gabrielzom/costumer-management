@@ -1,0 +1,22 @@
+#index {
+  margin-top: 10px; 
+  border-radius: 5px; 
+  background-color: #eeeeee;
+  padding-bottom: 25px;
+  overflow: scroll;
+}
+
+#index p {
+  font-size: 20px;
+}
+
+.row {
+  margin-top: 25px;
+  margin-left: 25px;
+  margin-right: 25px;
+  margin-bottom: 25px;
+}
+
+.row h2 {
+  margin-bottom: 20px;
+}
