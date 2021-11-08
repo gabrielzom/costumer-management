@@ -3,30 +3,30 @@
   <div class="row">
     <div class="col-md-5">
       <h2>Dados do cliente à editar</h1>
-      <form action="/editar/<%=cliente.id%>?_method=PUT" method="POST" enctype="application/x-www-form-urlencoded">
+      <form action="/clientes/editar/<%=cliente.id%>?_method=PUT" method="POST" enctype="application/x-www-form-urlencoded">
         
         <div class="form-floating mb-2">
-          <input value="<%= cliente.nome %>" type="text" name="nome" class="form-control" >
+          <input value="<%= cliente.nome %>" type="text" name="nome" max-length="40" id="nome" class="form-control" >
           <label for="floatingInput">Nome ou Razão Social</label>
         </div>
         <div class="form-floating mb-2">
-          <input value="<%= cliente.cnpj_cpf %>" type="text" name="cnpj_cpf" class="form-control"  >
+          <input value="<%= cliente.cnpj_cpf %>" type="text" name="cnpj_cpf" max-length="14" id="cnpj_cpf" class="form-control"  >
           <label for="floatingInput">CPF ou CNPJ</label>
         </div>
         <div class="form-floating mb-2">
-          <input value="<%= cliente.telefone %>" type="text" name="telefone" class="form-control"  >
+          <input value="<%= cliente.telefone %>" type="text" name="telefone" max-length="11" id="telefone" class="form-control"  >
           <label for="floatingInput">Telefone</label>
         </div>
         <div class="form-floating mb-2">
-          <input value="<%= cliente.email %>" type="email" name="email" class="form-control" >
+          <input value="<%= cliente.email %>" type="email" name="email" max-length="50" id="email" class="form-control" >
           <label for="floatingInput">E-mail</label>
         </div>
         <div class="form-floating mb-2">
-          <input value="<%= cliente.contato %>" type="text" name="contato" class="form-control" >
+          <input value="<%= cliente.contato %>" type="text" name="contato" max-length="20" id="contato" class="form-control" >
           <label for="floatingInput">Contato</label>
         </div>
         <div class="form-floating mb-2">
-          <input value="<%= cliente.data_cadastro %>" type="date" name="data_cadastro" class="form-control" >
+          <input value="<%= cliente.data_cadastro %>" type="date" name="data_cadastro" max-length="" id="" class="form-control" >
           <label for="floatingInput">Data da Entrada</label>
         </div>
         <label for="floati">Cliente Ativo ?</label>

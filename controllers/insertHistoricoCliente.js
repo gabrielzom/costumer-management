@@ -3,11 +3,16 @@ const { Op } = require('sequelize');
 const sequelize = require('sequelize');
 
 module.exports = (req, res) => {
+
+  let valor = (req.body.valor).replace(".","")
+  valor = valor.replace(",",".")
+  valor = Number(valor)
+
   historico.create({
     id_cliente : req.params.id,
     informacoes : req.body.informacoes,
     data_pagamento : req.body.data_pagamento,
-    valor : req.body.valor
+    valor : valor
   })
     .then(() => {
       console.log("-- correct insert historico.")

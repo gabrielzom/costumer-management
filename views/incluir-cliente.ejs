@@ -5,38 +5,38 @@
       <h2>Dados do Cliente</h1>
       <form action="/clientes/incluir" method="POST" enctype="application/x-www-form-urlencoded">
         <div class="form-floating mb-2">
-          <input type="text" name="nome" class="form-control" id="floatingInput" placeholder="name@example.com">
+          <input required type="text" name="nome" max-length="40" class="form-control" id="nome" placeholder="name@example.com">
           <label for="floatingInput">Nome ou Razão Social</label>
         </div>
         <div class="form-floating mb-2">
-          <input type="text" name="cnpj_cpf" class="form-control" id="floatingPassword" placeholder="Password">
+          <input required type="text" name="cnpj_cpf" max-length="14" class="form-control" id="cnpj_cpf">
           <label for="floatingInput">CPF ou CNPJ</label>
         </div>
         <div class="form-floating mb-2">
-          <input type="text" name="telefone" class="form-control" id="floatingPassword" placeholder="Password">
+          <input required type="text" name="telefone" max-length="11" class="form-control" id="telefone" >
           <label for="floatingInput">Telefone</label>
         </div>
         <div class="form-floating mb-2">
-          <input type="email" name="email" class="form-control" id="floatingPassword" placeholder="Password">
+          <input required type="email" name="email" max-length="50" class="form-control" id="email" >
           <label for="floatingInput">E-mail</label>
         </div>
         <div class="form-floating mb-2">
-          <input type="text" name="contato" class="form-control" id="floatingPassword" placeholder="Password">
+          <input required type="text" name="contato" max-length="20" class="form-control" id="contato" >
           <label for="floatingInput">Contato</label>
         </div>
         <div class="form-floating mb-2">
-          <input type="date" name="data_cadastro" class="form-control" id="floatingPassword" placeholder="Password">
+          <input required type="date" name="data_cadastro" class="form-control" id="" >
           <label for="floatingInput">Data da Entrada</label>
         </div>
         <label for="floati">Cliente Ativo ?</label>
         <div class="form-check">
-          <input value="NÃO" class="form-check-input" type="radio" name="ativo" id="radio-ativo">
+          <input required value="NÃO" class="form-check-input" type="radio" name="ativo" id="radio-ativo">
           <label class="form-check-label" for="flexRadioDefault1">
             Não
           </label>
         </div>
         <div class="form-check">
-          <input value="SIM" class="form-check-input" type="radio" name="ativo" id="radio-inativo" checked>
+          <input required value="SIM" class="form-check-input" type="radio" name="ativo" id="radio-inativo" checked>
           <label class="form-check-label" for="flexRadioDefault2">
             Sim
           </label>
