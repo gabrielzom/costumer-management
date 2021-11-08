@@ -22,7 +22,7 @@
       <tr>
         <th value="" scope="row"><%= historico[i].id %></th>
         <td><%= historico[i].informacoes %></td>
-        <td><%= historico[i].data_pagamento %></td>
+        <td class="moment"><%= historico[i].data_pagamento %></td>
         <td><%= Number(historico[i].valor).toLocaleString('pt-br', {
           style: 'currency',
           currency: 'BRL'

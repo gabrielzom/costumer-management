@@ -6,16 +6,16 @@
       <form action="/clientes/historico/editar/<%=historico.id %>?_method=PUT" method="POST" enctype="application/x-www-form-urlencoded">
         <input value="<%=cliente.id %>" type="text" name="id_cliente" class="form-control" style="visibility: hidden;">
         <div class="form-floating mb-2">
-          <input value="<%=historico.informacoes %>" type="text" name="informacoes" max-length="100" class="form-control" required>
+          <input value="<%=historico.informacoes %>" type="text" name="informacoes" max-length="100" class="form-control" placeholder="name@example.com" required>
           <label for="floatingInput">Informações</label>
         </div>
         <div class="form-floating mb-2">
-          <input value="<%=historico.data_pagamento %>" type="date" name="data_pagamento" class="form-control" required>
+          <input value="<%=historico.data_pagamento %>" type="date" name="data_pagamento" class="form-control" placeholder="name@example.com" required>
           <label for="floatingInput">Data do pagamento</label>
         </div>
         <div class="form-floating mb-2">
-          <input value="<%=historico.valor %>" type="text" name="valor" id="valor" class="form-control" required>
-          <label for="floatingInput">Valor</label>
+          <input value="<%=historico.valor %>" type="text" name="valor" id="valor" class="form-control" placeholder="name@example.com" required>
+          <label for="floatingInput">Valor R$</label>
         </div>
         <button type="submit" class="btn btn-success">Salvar Edição de Histórico</button>
       </form>

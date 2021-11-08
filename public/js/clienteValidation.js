@@ -22,3 +22,10 @@ $("#telefone").on("keypress", function(){
   }) 
 })
 
+
+let date = ['2021-11-07','2021-11-08']
+let data = document.getElementsByClassName("moment")
+
+for (let i=0; i<data.length; i++) {
+  data[i].innerHTML = moment(data[i].innerHTML).format("DD/MM/YYYY")
+}
