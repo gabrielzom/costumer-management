@@ -7,14 +7,14 @@ module.exports = (req, res) => {
   historico
     .findAll({
       where : {
-        id_cliente : req.params.id_cliente_historico
+        id_cliente : req.params.id
       }
     })
     .then((historico) => {
       clientes
         .findAll({
           where : {
-            id: req.params.id_cliente_historico
+            id: req.params.id
           }
         })
         .then((cliente) =>{

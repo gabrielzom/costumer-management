@@ -1,0 +1,24 @@
+<%- include('header'); %>
+<div style="overflow: hidden;" id="index" class="container">
+  <div class="row">
+    <div class="col-md-5">
+      <h2>Incluir pagamento. Cliente: <%=cliente[0].nome %></h1>
+      <form action="/clientes/historico/incluir/<%=cliente[0].id %>" method="POST" enctype="application/x-www-form-urlencoded">
+        <div class="form-floating mb-2">
+          <input type="text" name="informacoes" class="form-control" id="floatingInput" placeholder="name@example.com">
+          <label for="floatingInput">Informações</label>
+        </div>
+        <div class="form-floating mb-2">
+          <input type="date" name="data_pagamento" class="form-control" id="floatingPassword" placeholder="Password">
+          <label for="floatingInput">Data do pagamento</label>
+        </div>
+        <div class="form-floating mb-2">
+          <input type="text" name="valor" class="form-control" id="floatingPassword" placeholder="Password">
+          <label for="floatingInput">Valor</label>
+        </div>
+        <button type="submit" class="btn btn-success">Incluir Histórico</button>
+      </form>
+    </div>
+  </div>
+</div>
+<%- include('footer'); %>

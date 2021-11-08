@@ -1,8 +1,17 @@
 const clientes = require('../models/clientes')
+const historico = require('../models/historico')
 const { Op } = require('sequelize');
 const sequelize = require('sequelize');
 
 module.exports = (req, res) => {
+
+  historico
+    .destroy({
+      where : {
+        id_cliente : req.params.id
+      }
+    })
+
   clientes
     .destroy({
       where: {

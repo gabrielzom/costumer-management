@@ -3,8 +3,6 @@
   <br><br>
   <h2>Historico do Cliente <%=cliente[0].nome %></h2>
   <hr>
-  <h1></h1>
-  <h1><%= %></h1>
 <table id="minhaTabela" class="table table-bordered table-striped">
     <thead>
       <tr>
@@ -22,10 +20,10 @@
 
     <% for(var i=0; i<Object.keys(historico).length; i++) { %>
       <tr>
-        <th value="" scope="row"><%= historico[0].id %></th>
-        <td><%= historico[0].informacoes %></td>
-        <td><%= historico[0].data_pagamento %></td>
-        <td><%= Number(historico[0].valor).toLocaleString('pt-br', {
+        <th value="" scope="row"><%= historico[i].id %></th>
+        <td><%= historico[i].informacoes %></td>
+        <td><%= historico[i].data_pagamento %></td>
+        <td><%= Number(historico[i].valor).toLocaleString('pt-br', {
           style: 'currency',
           currency: 'BRL'
         }) %>
@@ -33,20 +31,23 @@
         <td><%= cliente[0].email %></td>
         <td><%= cliente[0].telefone %></td>
           <td>
-            <a href="/<%=historico[0].id %>">
-              <button type="submit" class="btn btn-warning">Editar</button>
-            </a>
+            <form action="/clientes/historico/editar/<%=historico[i].id %>" method="POST" enctype="application/x-www-form-urlencoded">
+              <button type="submit" class="btn btn-warning">Editar Registro</button>
+            </form>
           </td>
 
           <td>
-            <form action="/<%=historico[0].id %>?_method=DELETE" method="POST" enctype="application/x-www-form-urlencoded">
-              <button type="submit" class="btn btn-danger">Excluir</button>
+            <form action="/clientes/historico/excluir/<%=historico[i].id %>?_method=DELETE" method="POST" enctype="application/x-www-form-urlencoded">
+              <button type="submit" class="btn btn-danger">Excluir Registro</button>
+              <input value="<%=cliente[0].id %>" type="text" name="id_cliente" class="form-control" style="visibility: hidden;">
             </form>
           </td>
       </tr>
     <% } %>
     </tbody>
   </table>
-  <a href="/incluir-historico"><button type="submit" class="btn btn-success">Incluir no Histórico</button></a>
+  <form action="/clientes/historico/incluir/<%=cliente[0].id %>" method="GET" enctype="application/x-www-form-urlencoded">
+    <button type="submit" class="btn btn-success">Incluir no Histórico</button>
+  </form>
 </div>
 <%- include('footer'); %>

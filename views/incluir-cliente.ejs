@@ -3,7 +3,7 @@
   <div class="row">
     <div class="col-md-5">
       <h2>Dados do Cliente</h1>
-      <form action="/incluir-cliente" method="POST" enctype="application/x-www-form-urlencoded">
+      <form action="/clientes/incluir" method="POST" enctype="application/x-www-form-urlencoded">
         <div class="form-floating mb-2">
           <input type="text" name="nome" class="form-control" id="floatingInput" placeholder="name@example.com">
           <label for="floatingInput">Nome ou Razão Social</label>
@@ -41,7 +41,7 @@
             Sim
           </label>
         </div>
-        <button class="btn btn-success">Incluir Cliente</button>
+        <button type="submit"class="btn btn-success">Incluir Cliente</button>
       </form>
     </div>
   </div>

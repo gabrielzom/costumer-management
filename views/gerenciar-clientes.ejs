@@ -32,19 +32,19 @@
         <td><%= clientes[i].ativo %></td>
         <td><%= clientes[i].data_cadastro %></td>
           <td>
-            <form action="/<%=clientes[i].id %>" method="POST" enctype="application/x-www-form-urlencoded">
+            <form action="/clientes/historico/<%=clientes[i].id %>" method="GET" enctype="application/x-www-form-urlencoded">
               <button class="btn btn-primary">Histórico</button>
             </form>
           </td>
 
           <td>
-            <a href="/<%=clientes[i].id %>">
+            <a href="/clientes/editar/<%=clientes[i].id %>">
               <button type="submit" class="btn btn-warning">Editar</button>
             </a>
           </td>
 
           <td>
-            <form action="/<%=clientes[i].id %>?_method=DELETE" method="POST" enctype="application/x-www-form-urlencoded">
+            <form action="/clientes/excluir/<%=clientes[i].id %>?_method=DELETE" method="POST" enctype="application/x-www-form-urlencoded">
               <button type="submit" class="btn btn-danger">Excluir</button>
             </form>
           </td>
@@ -52,6 +52,6 @@
     <% } %>
     </tbody>
   </table>
-  <a href="/incluir-cliente"><button type="submit" class="btn btn-success">Incluir</button></a>
+  <a href="/clientes/incluir"><button type="submit" class="btn btn-success">Incluir</button></a>
 </div>
 <%- include('footer'); %>
