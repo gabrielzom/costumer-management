@@ -44,7 +44,7 @@
           </td>
 
           <td>
-              <button type="submit" class="btn-excluir-cliente btn btn-danger">Excluir</button>
+              <button value="<%=clientes[i].id %>" onclick="excluirCliente(this.value)" type="submit" class="btn btn-danger">Excluir</button>
           </td>
       </tr>
     <% } %>
@@ -62,9 +62,12 @@
         </button>
       </div>
       <div class="modal-body">
-        Deseja mesmo excluir esse cliente ? Este processo é <strong>irreversível.</strong>
+        Deseja mesmo excluir esse cliente ? Este processo é <strong>irreversível</strong> e apaga todo o histórico do mesmo.
       </div>
       <div style="text-align: left;" class="modal-footer">
+        <form id="excluir-cliente" method="POST" enctype="application/x-www-form-urlencoded">
+          <button type="submit" class="btn btn-danger" data-dismiss="modal">Confirmar Exclusão</button>
+        </form>
         <button type="button" class="cancelar-excluir-cliente btn btn-secondary" data-dismiss="modal">Cancelar</button>
       </div>
     </div>

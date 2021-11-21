@@ -37,10 +37,7 @@
           </td>
 
           <td>
-            <form action="/clientes/historico/excluir/<%=historico[i].id %>?_method=DELETE" method="POST" enctype="application/x-www-form-urlencoded">
-              <button type="submit" class="btn btn-danger">Excluir Registro</button>
-              <input value="<%=cliente[0].id %>" type="text" name="id_cliente" class="form-control" style="visibility: hidden;">
-            </form>
+            <button value="<%=historico[i].id %>" onclick="excluirHistorico(this.value)" type="submit" class="btn btn-danger">Excluir Registro</button>
           </td>
       </tr>
     <% } %>
@@ -49,5 +46,27 @@
   <form action="/clientes/historico/incluir/<%=cliente[0].id %>" method="GET" enctype="application/x-www-form-urlencoded">
     <button type="submit" class="btn btn-success">Incluir no Histórico</button>
   </form>
+</div>
+
+<div class="modal fade" id="modal-excluir-historico" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 style="font-weight: bold;" class="modal-title" id="exampleModalLabel">Aviso</h5>
+        <button type="button" class="cancelar-excluir-historico btn-close" data-dismiss="modal" aria-label="Close">
+        </button>
+      </div>
+      <div class="modal-body">
+        Deseja mesmo excluir esse registro ? Este processo é <strong>irreversível</strong>.
+      </div>
+      <div style="text-align: left;" class="modal-footer">
+        <form id="excluir-historico" method="POST" enctype="application/x-www-form-urlencoded">
+          <input value="<%=cliente[0].id %>" type="text" name="id_cliente" style="width: 50px;visibility: hidden;">
+          <button type="submit" class="btn btn-danger" data-dismiss="modal">Confirmar Exclusão</button>
+        </form>
+        <button type="button" class="cancelar-excluir-historico btn btn-secondary" data-dismiss="modal">Cancelar</button>
+      </div>
+    </div>
+  </div>
 </div>
 <%- include('footer'); %>
