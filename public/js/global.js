@@ -7,7 +7,7 @@ $(".cancelar-logout").on("click", () => {
 })
 
 
-$("#btn-excluir-cliente").on("click", () => {
+$(".btn-excluir-cliente").on("click", () => {
   $("#modal-excluir-cliente").modal("show");
 })
 
