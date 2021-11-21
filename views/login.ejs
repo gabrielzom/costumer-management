@@ -1,0 +1,29 @@
+<%- include('header'); %>
+<div class="container">
+  <div class="row">
+    <div class="form-control col-md-5">
+      <% if (error == '') { %>
+        <%} else { %>
+        <div class="alert alert-danger">
+          <%=error %>
+        </div>
+        <% } %>
+
+      <h2>Login</h2>
+      <form action="/usuario/login" method="POST" enctype="application/x-www-form-urlencoded">
+        <div class="form-floating mb-3">
+          <input name="email" type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+          <label for="floatingInput">E-mail</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input name="senha" type="password" class="form-control" id="floatingPassword" placeholder="Password">
+          <label for="floatingPassword">Senha</label>
+        </div>
+        <div >
+          <button type="submit" class="btn btn-success">Entrar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<%- include('footer'); %>

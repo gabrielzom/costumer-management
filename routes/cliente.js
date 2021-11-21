@@ -12,29 +12,27 @@ const selectClienteForInsertHistorico = require("../controllers/selectClienteFor
 const selectHistoricoForEdit = require("../controllers/selectHistoricoForEdit")
 const updateHistorico = require("../controllers/updateHistorico")
 const deleteHistoricoById = require("../controllers/deleteHistoricoById")
+const { isAdmin } = require("../helpers/isAdmin")
 
 cliente.use(express.static("public"))
 
-cliente.get("/historico/:id", selectHistoricoById)
-cliente.get("/historico/incluir/:id", selectClienteForInsertHistorico)
-cliente.post("/historico/incluir/:id", insertHistoricoCliente)
+cliente.get("/historico/:id", isAdmin, selectHistoricoById)
+cliente.get("/historico/incluir/:id", isAdmin, selectClienteForInsertHistorico)
+cliente.post("/historico/incluir/:id", isAdmin, insertHistoricoCliente)
 
-cliente.post("/historico/editar/:id", selectHistoricoForEdit)
-cliente.put("/historico/editar/:id", updateHistorico)
+cliente.post("/historico/editar/:id", isAdmin, selectHistoricoForEdit)
+cliente.put("/historico/editar/:id", isAdmin, updateHistorico)
 
-cliente.get("/editar/:id", selectClienteById)
-cliente.put("/editar/:id", updateClienteById)
+cliente.get("/editar/:id", isAdmin, selectClienteById)
+cliente.put("/editar/:id", isAdmin, updateClienteById)
 
-cliente.delete("/excluir/:id", deleteClienteById)
-cliente.delete("/historico/excluir/:id", deleteHistoricoById)
+cliente.delete("/excluir/:id", isAdmin, deleteClienteById)
+cliente.delete("/historico/excluir/:id", isAdmin, deleteHistoricoById)
 
-cliente.get("/incluir", (req, res) => {res.render("incluir-cliente")})
-cliente.post("/incluir", insertCliente)
+cliente.get("/incluir", isAdmin, (req, res) => {res.render("incluir-cliente")})
+cliente.post("/incluir", isAdmin, insertCliente)
 
-cliente.get("/insert-historico/:id", selectClienteForInsertHistorico)
-
-
-
+cliente.get("/insert-historico/:id", isAdmin, selectClienteForInsertHistorico)
 
 
 module.exports = cliente;
