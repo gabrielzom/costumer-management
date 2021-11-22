@@ -1,7 +1,6 @@
 const localStrategy = require("passport-local").Strategy;
 const usuarios = require("../models/usuarios")
 const sequelize = require("../models/db")
-const { Op } = require("sequelize")
 require("dotenv").config();
 
 module.exports = (passport) => {
@@ -22,7 +21,7 @@ module.exports = (passport) => {
               return done(null, usuario)
             
             } else {
-              return done(null, false, {message : "Senha incorreta"})
+              return done(null, false, { message : "Senha incorreta" })
             }
         })
       } 

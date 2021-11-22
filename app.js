@@ -12,10 +12,13 @@ require("./config/auth")(passport)
 
 require("dotenv").config();
 
+var um_dia = 86400000
+
 app.use(session({
   secret : process.env.KEY,
   resave : true,
-  saveUninitialized : true
+  saveUninitialized : true,
+  cookie : {maxAge : um_dia}
 }))
 
 app.use(passport.initialize())
