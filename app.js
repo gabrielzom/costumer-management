@@ -9,7 +9,6 @@ const flash = require("connect-flash")
 const app = express();
 const passport = require("passport")
 
-
 require("./config/auth")(passport)
 require("dotenv").config();
 
