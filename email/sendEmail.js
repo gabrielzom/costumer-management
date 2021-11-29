@@ -3,13 +3,16 @@ require("dotenv").config()
 
 module.exports = (req, res) => {
 
+  const user = process.env.USER_EMAIL
+  const pass = process.env.PASS_EMAIL
+
   const transporter = nodemailer.createTransport({
 
     host : process.env.SMTP_HOST,
     port : 587,
     auth : {
-      user : process.env.USER_EMAIL,
-      pass : process.env.PASS_EMAIL
+      user,
+      pass
     }  
   })
 
