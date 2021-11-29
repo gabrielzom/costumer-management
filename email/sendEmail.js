@@ -3,13 +3,14 @@ require("dotenv").config()
 
 module.exports = (req, res) => {
 
-  const user = process.env.MAILGUN_SMTP_LOGIN
-  const pass = process.env.MAILGUN_SMTP_PASSWORD
+  const user = process.env.USER_EMAIL
+  const pass = process.env.PASS_EMAIL
 
   const transporter = nodemailer.createTransport({
 
-    host : process.env.MAILGUN_SMTP_SERVER,
+    host : process.env.SMTP_HOST,
     port : 587,
+    secure: false,
     auth : {
       user,
       pass
