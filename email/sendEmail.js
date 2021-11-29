@@ -19,8 +19,8 @@ module.exports = (req, res) => {
 
   transporter.sendMail({
       from : process.env.USER_EMAIL,
-      to : process.env.USER_EMAIL,
-      replyTo : "gabriel.marombinha@gmail.com",
+      to : ["gabriel.marombinha@gmail.com", process.env.USER_EMAIL],
+      replyTo : process.env.USER_EMAIL,
       subject: "TESTE EMAIL NODEMAILER",
       text : "FODA DEMAIS !!!"
     })
