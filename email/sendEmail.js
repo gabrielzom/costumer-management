@@ -3,8 +3,8 @@ require("dotenv").config()
 
 module.exports = (req, res) => {
 
-  const user = process.env.USER_EMAIL
-  const pass = process.env.PASS_EMAIL
+  const user = process.env.MAILGUN_SMTP_LOGINL
+  const pass = process.env.MAILGUN_SMTP_PASSWORD
 
   const transporter = nodemailer.createTransport({
 
@@ -17,9 +17,9 @@ module.exports = (req, res) => {
   })
 
   transporter.sendMail({
-      from : process.env.USER_EMAIL,
+      from : process.env.MAILGUN_SMTP_LOGIN,
       to : process.env.USER_EMAIL,
-      //replyTo : "gabriel.marombinha@gmail.com",
+      replyTo : "gabriel.marombinha@gmail.com",
       subject: "TESTE EMAIL NODEMAILER",
       text : "FODA DEMAIS !!!"
     })
