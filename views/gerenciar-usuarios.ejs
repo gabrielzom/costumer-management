@@ -1,2 +1,62 @@
 <%- include('header'); %>
+<div id="index" class="container">
+  <br><br>
+  <h2>Usuarios cadastrados</h2>
+  <hr>
+<table id="minhaTabela" class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nome</th>
+        <th scope="col">E-mail</th>
+        <th scope="col">Permissão</th>
+        <th scope="col">Criação</th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+
+    <% for(var i=0; i<Object.keys(usuarios).length; i++) { %>
+      <tr>
+        <th value="" scope="row"><%= usuarios[i].id %></th>
+        <td><%= usuarios[i].nome %></td>
+        <td><%= usuarios[i].email %></td>
+        <td><%= usuarios[i].permissao %></td>
+        <td class="moment" ><%= usuarios[i].createdAt %></td>
+          <td>
+            <a href="/usuario/alterar-senha/<%=usuarios[i].id %>">
+              <button type="submit" class="btn btn-warning">Alterar senha</button>
+            </a>
+          </td>
+          <td>
+              <button value="<%=usuarios[i].id %>" onclick="excluirUsuario(this.value)" type="submit" class="btn btn-danger">Excluir usuario</button>
+          </td>
+      </tr>
+    <% } %>
+    </tbody>
+  </table>
+  <a href="/usuario/incluir"><button type="submit" class="btn btn-success">Cadastrar usuario</button></a>
+</div>
+
+<div class="modal fade" id="modal-excluir-cliente" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 style="font-weight: bold;" class="modal-title" id="exampleModalLabel">Aviso</h5>
+        <button type="button" class="cancelar-excluir-cliente btn-close" data-dismiss="modal" aria-label="Close">
+        </button>
+      </div>
+      <div class="modal-body">
+        Deseja mesmo excluir esse usuário ? Este processo é <strong>irreversível</strong>
+      </div>
+      <div style="text-align: left;" class="modal-footer">
+        <form id="excluir-cliente" method="POST" enctype="application/x-www-form-urlencoded">
+          <button type="submit" class="btn btn-danger" data-dismiss="modal">Confirmar exclusão</button>
+        </form>
+        <button type="button" class="cancelar-excluir-cliente btn btn-secondary" data-dismiss="modal">Cancelar</button>
+      </div>
+    </div>
+  </div>
+</div>
 <%- include('footer'); %>

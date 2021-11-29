@@ -5,7 +5,10 @@ const usuarios = sequelize.define('usuarios', {
   nome : DataTypes.STRING(50),
   email: DataTypes.STRING(50),
   senha: DataTypes.BLOB,
-  admin: DataTypes.BOOLEAN,
+  admin: {
+    type : DataTypes.BOOLEAN,
+    default : 0
+  },
   permissao: DataTypes.INTEGER
 })
 

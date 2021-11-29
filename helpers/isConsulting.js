@@ -1,6 +1,6 @@
 module.exports = {
-  isAdmin : (req, res, next) => {
-    if (req.isAuthenticated() && req.user.permissao == 3) {
+  isConsulting : (req, res, next) => {
+    if (req.isAuthenticated() && req.user.permissao <= 3) {
       return next()
 
     } else {

@@ -1,7 +1,6 @@
 const express = require("express");
 const cliente = express.Router();
 
-const selectClientes = require("../controllers/selectClientes")
 const insertCliente = require("../controllers/insertCliente")
 const selectClienteById = require("../controllers/selectClienteById")
 const updateClienteById = require("../controllers/updateClienteById")
@@ -12,27 +11,24 @@ const selectClienteForInsertHistorico = require("../controllers/selectClienteFor
 const selectHistoricoForEdit = require("../controllers/selectHistoricoForEdit")
 const updateHistorico = require("../controllers/updateHistorico")
 const deleteHistoricoById = require("../controllers/deleteHistoricoById")
-const { isAdmin } = require("../helpers/isAdmin")
+const { isConsulting } = require("../helpers/isConsulting");
+const { isOperator } = require("../helpers/isOperator");
+const { isManager } = require("../helpers/isManager");
 
 cliente.use(express.static("public"))
 
-cliente.get("/historico/:id", isAdmin, selectHistoricoById)
-cliente.get("/historico/incluir/:id", isAdmin, selectClienteForInsertHistorico)
-cliente.post("/historico/incluir/:id", isAdmin, insertHistoricoCliente)
+cliente.get("/historico/:id", isConsulting, selectHistoricoById)
+cliente.get("/historico/incluir/:id", isOperator, selectClienteForInsertHistorico)
+cliente.post("/historico/incluir/:id", isOperator, insertHistoricoCliente)
+cliente.post("/historico/editar/:id", isManager, selectHistoricoForEdit)
+cliente.put("/historico/editar/:id", isManager, updateHistorico)
+cliente.delete("/historico/excluir/:id", isManager, deleteHistoricoById)
 
-cliente.post("/historico/editar/:id", isAdmin, selectHistoricoForEdit)
-cliente.put("/historico/editar/:id", isAdmin, updateHistorico)
-
-cliente.get("/editar/:id", isAdmin, selectClienteById)
-cliente.put("/editar/:id", isAdmin, updateClienteById)
-
-cliente.delete("/excluir/:id", isAdmin, deleteClienteById)
-cliente.delete("/historico/excluir/:id", isAdmin, deleteHistoricoById)
-
-cliente.get("/incluir", isAdmin, (req, res) => {res.render("incluir-cliente")})
-cliente.post("/incluir", isAdmin, insertCliente)
-
-cliente.get("/insert-historico/:id", isAdmin, selectClienteForInsertHistorico)
-
+cliente.get("/editar/:id", isManager, selectClienteById)
+cliente.get("/incluir", isOperator, (req, res) => {res.render("incluir-cliente")})
+cliente.get("/insert-historico/:id", isOperator, selectClienteForInsertHistorico)
+cliente.post("/incluir",isOperator, insertCliente)
+cliente.put("/editar/:id", isManager, updateClienteById)
+cliente.delete("/excluir/:id", isManager, deleteClienteById)
 
 module.exports = cliente;

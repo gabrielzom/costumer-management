@@ -1,13 +1,14 @@
 const express = require("express");
 const cliente = require("./routes/cliente")
-const home = require("./routes/home")
+const home    = require("./routes/home")
 const usuario = require("./routes/usuario")
+const send    = require("./routes/send")
 const methodOverride = require("method-override");
 const session = require("express-session")
 const flash = require("connect-flash")
-const cookieParser = require("cookie-parser")
 const app = express();
 const passport = require("passport")
+
 
 require("./config/auth")(passport)
 require("dotenv").config();
@@ -39,6 +40,7 @@ app.use(express.json())
 app.use(express.urlencoded({extended : false}))
 
 app.use("/usuario", usuario)
+app.use("/usuario/alterar-senha", usuario)
 app.use("/clientes", cliente)
 app.use("/clientes/historico", cliente)
 app.use("/clientes/historico/incluir", cliente)
@@ -47,6 +49,7 @@ app.use("/clientes/historico/excluir", cliente)
 app.use("/clientes/editar", cliente)
 app.use("/clientes/excluir", cliente)
 app.use("/", home)
+app.use("/send", send)
 
 app.set('view engine', 'ejs')
 app.set('views', ('./views'))
