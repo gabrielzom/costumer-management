@@ -16,7 +16,6 @@ $(".cancelar-excluir-cliente").on("click", () => {
 })
 
 
-
 function excluirHistorico(id) {
   document.querySelector("#excluir-historico").setAttribute("action",`/clientes/historico/excluir/${id}?_method=DELETE`)
   $("#modal-excluir-historico").modal("show");

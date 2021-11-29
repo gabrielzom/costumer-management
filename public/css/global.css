@@ -20,3 +20,60 @@
 .row h2 {
   margin-bottom: 20px;
 }
+
+@media(max-width : 1920px) {
+  #login {
+    margin-left: 25%;
+    width: 50%;
+  }
+}
+
+@media(max-width : 1798px) {
+  #login {
+    margin-left: 25%;
+    width: 50%;
+  }
+}
+
+@media(max-width : 1534px) {
+  #login {
+    margin-left: 25%;
+    width: 50%;
+  }
+}
+
+@media(max-width : 1392px) {
+  #login {
+    margin-left: 20%;
+    width: 60%;
+  }
+}
+
+@media(max-width : 1178px) {
+  #login {
+    margin-left: 20%;
+    width: 60%;
+  }
+}
+
+
+@media(max-width : 992px) {
+  #login {
+    margin-left: 15%;
+    width: 70%;
+  }
+}
+
+@media(max-width : 800px) {
+  #login {
+    margin-left: 10%;
+    width: 80%;
+  }
+}
+
+@media(max-width : 600px) {
+  #login {
+    margin-left: 5%;
+    width: 90%;
+  }
+}

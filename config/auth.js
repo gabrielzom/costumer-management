@@ -10,18 +10,18 @@ module.exports = (passport) => {
         email : email
       }
     })
-    .then((usuario) => {
+    .then((usuario) => {  
       if (!usuario) {
-        return done(null, false, { message : "Usuário não existente" })
+        return done(null, false, { message : "Este usuário não existe" })
 
       } else {
-        sequelize.query(`select cast(aes_decrypt(senha, '${process.env.KEY}') as char) as senha from usuarios where email='${email}'`)
+        sequelize.query(`SELECT CAST(AES_DECRYPT(senha, '${process.env.KEY}') AS CHAR) AS senha FROM usuario WHERE email='${email}'`)
           .then((user) => {
             if (user[0][0].senha == senha) {
               return done(null, usuario)
             
             } else {
-              return done(null, false, { message : "Senha incorreta" })
+              return done(null, false, { message : "Sua senha está incorreta" })
             }
         })
       } 

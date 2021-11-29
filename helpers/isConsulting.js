@@ -2,10 +2,10 @@ module.exports = {
   isAdmin : (req, res, next) => {
     if (req.isAuthenticated() && req.user.permissao == 3) {
       return next()
+
+    } else {
+      req.flash("error_msg", "Use um login de consultor para ter acesso.")
+      res.redirect("/")
     }
-
-    req.flash("error_msg", "Use um login de administrador para ter acesso.")
-    res.redirect("/")
-
   }
 }

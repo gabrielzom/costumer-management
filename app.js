@@ -8,8 +8,8 @@ const flash = require("connect-flash")
 const cookieParser = require("cookie-parser")
 const app = express();
 const passport = require("passport")
-require("./config/auth")(passport)
 
+require("./config/auth")(passport)
 require("dotenv").config();
 
 var um_dia = 86400000
@@ -18,7 +18,7 @@ app.use(session({
   secret : process.env.KEY,
   resave : true,
   saveUninitialized : true,
-  cookie : {maxAge : um_dia}
+  cookie : { maxAge : um_dia }
 }))
 
 app.use(passport.initialize())
