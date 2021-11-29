@@ -15,7 +15,7 @@ module.exports = (passport) => {
         return done(null, false, { message : "Este usuário não existe" })
 
       } else {
-        sequelize.query(`SELECT CAST(AES_DECRYPT(senha, '${process.env.KEY}') AS CHAR) AS senha FROM usuario WHERE email='${email}'`)
+        sequelize.query(`SELECT CAST(AES_DECRYPT(senha, '${process.env.KEY}') AS CHAR) AS senha FROM usuarios WHERE email='${email}'`)
           .then((user) => {
             if (user[0][0].senha == senha) {
               return done(null, usuario)
