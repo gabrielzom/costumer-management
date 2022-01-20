@@ -1,24 +1,31 @@
 <%- include('header'); %>
 <div style="overflow: hidden;" id="index" class="container">
+  <div class="col-md-7 row">
+    <h3>Incluir histórico para <%=cliente[0].nome %></h3>
+  </div>
   <div class="row">
-    <div class="col-md-5">
-      <h2>Incluir pagamento. Cliente: <%=cliente[0].nome %></h1>
+    <div class="col-md-5">   
       <form action="/clientes/historico/incluir/<%=cliente[0].id %>" method="POST" enctype="application/x-www-form-urlencoded">
         <div class="form-floating mb-2">
-          <input type="text" name="informacoes" class="form-control" max-length="100" placeholder="name@example.com" required>
+          <input type="text" name="informacoes" class="form-control" max-length="100" required>
           <label for="floatingInput">Informações</label>
         </div>
         <div class="form-floating mb-2">
-          <input type="date" name="data_pagamento" class="form-control" placeholder="name@example.com" required>
-          <label for="floatingInput">Data do pagamento</label>
+          <input id="data_pagamento" type="date" name="data_pagamento" class="form-control" required>
+          <label for="floatingInput">Data</label>
         </div>
         <div class="form-floating mb-2">
-          <input type="text" name="valor" class="form-control" id="valor" placeholder="name@example.com" required>
+          <input type="text" name="valor" class="form-control" id="valor">
           <label for="floatingInput">Valor R$</label>
+          <p style="color:red; font-size: 14px;">*Se caso não houver valor, deixe o campo em branco.</p>
         </div>
         <button type="submit" class="btn btn-success">Incluir Histórico</button>
       </form>
     </div>
   </div>
 </div>
+<script>
+  let dataPagamento = document.getElementById("data_pagamento")
+  dataPagamento.value = new Date().toISOString().slice(0, 10);
+</script>
 <%- include('footer'); %>

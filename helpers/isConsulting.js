@@ -5,7 +5,7 @@ module.exports = {
 
     } else {
       req.flash("error_msg", "Use um login de consultor para ter acesso.")
-      res.redirect("/")
+      res.redirect("/usuario/login")
     }
   }
 }

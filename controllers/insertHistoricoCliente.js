@@ -4,9 +4,17 @@ const sequelize = require('sequelize');
 
 module.exports = (req, res) => {
 
-  let valor = (req.body.valor).replace(".","")
-  valor = valor.replace(",",".")
-  valor = Number(valor)
+  var valor = null;
+
+  if (req.body.valor == "" || req.body.valor == null) {
+    valor = 0.00;
+
+  } else {
+    valor = (req.body.valor).replace(".","")
+    valor = valor.replace(",",".")
+    valor = Number(valor)
+
+  }
 
   historico.create({
     id_cliente : req.params.id,

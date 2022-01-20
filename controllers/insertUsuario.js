@@ -3,7 +3,7 @@ const sequelize = require('sequelize');
 require("dotenv").config()
 
 module.exports = (req, res) => {
-
+  
   usuarios
     .findOne({
       where : {

@@ -1,26 +1,40 @@
 const clientes = require('../models/clientes')
-const historico = require('../models/historico')
+const historicos = require('../models/historico')
 const { Op } = require('sequelize');
 const sequelize = require('sequelize');
 
+
 module.exports = (req, res) => {
 
-  historico
-    .destroy({
-      where : {
-        id_cliente : req.params.id
-      }
-    })
+  let status = null;
 
-  clientes
-    .destroy({
-      where: {
-        id : req.params.id
+  historicos
+    .findAll({
+      where : {
+        id_cliente : Number(req.params.id)
       }
     })
-    .then(() => {
-      console.log("-- correct delete for edit cliente.")
-      return res.redirect("/clientes")
-    })
-    .catch(error => console.log("-- incorrect delete for edit cliente. " + error))
+    .then(historico => {
+      if(historico.length != 0) {
+        res.redirect("/clientesnotdelete")
+          
+      } else {
+        clientes
+          .destroy({
+            where: {
+              id : req.params.id
+            }
+          })
+          .then(() => {
+            status = 200;
+            console.log("-- correct delete for edit cliente.")
+            return res.redirect("/clientes", )
+          })
+          .catch(error => {
+            status = 400;
+            console.log("-- incorrect delete for edit cliente. " + error)
+          })
+            }
+          })
+
 }

@@ -1,21 +1,24 @@
 <%- include('header'); %>
 <div style="overflow: hidden;" id="index" class="container">
+  <div class="col-md-7 row">
+    <h3>Editar historico nº<%=historico.id %> de <%= cliente.nome %> </h3>
+  </div>
   <div class="row">
     <div class="col-md-5">
-      <h2>Editar historico nº<%=historico.id %> Cliente: <%= cliente.nome %> </h1>
       <form action="/clientes/historico/editar/<%=historico.id %>?_method=PUT" method="POST" enctype="application/x-www-form-urlencoded">
         <input value="<%=cliente.id %>" type="text" name="id_cliente" class="form-control" style="visibility: hidden;">
         <div class="form-floating mb-2">
-          <input value="<%=historico.informacoes %>" type="text" name="informacoes" max-length="100" class="form-control" placeholder="name@example.com" required>
+          <input value="<%=historico.informacoes %>" type="text" name="informacoes" max-length="100" class="form-control" required>
           <label for="floatingInput">Informações</label>
         </div>
         <div class="form-floating mb-2">
-          <input value="<%=historico.data_pagamento %>" type="date" name="data_pagamento" class="form-control" placeholder="name@example.com" required>
-          <label for="floatingInput">Data do pagamento</label>
+          <input value="<%=historico.data_pagamento %>" type="date" name="data_pagamento" class="form-control" required>
+          <label for="floatingInput">Data</label>
         </div>
         <div class="form-floating mb-2">
-          <input value="<%=historico.valor %>" type="text" name="valor" id="valor" class="form-control" placeholder="name@example.com" required>
+          <input value="<%=historico.valor %>" type="text" name="valor" id="valor" class="form-control" >
           <label for="floatingInput">Valor R$</label>
+          <p style="color:red; font-size: 14px;">*Se caso não houver valor, deixe o campo em branco.</p>
         </div>
         <button type="submit" class="btn btn-success">Salvar Edição de Histórico</button>
       </form>

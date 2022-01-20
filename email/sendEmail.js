@@ -1,15 +1,9 @@
 const nodemailer = require("nodemailer")
-const mg = require('nodemailer-mailgun-transport')
 require("dotenv").config()
 
-module.exports = (req, res) => {
+module.exports = (req, res, senha, email) => {
 
-  let auth = {
-    auth : {
-      api_key : "f5321727ba69fbfbe9b15f821e1e23a3",
-      domain : "sandbox1c8e049178cf41a787cc6193ccee55fd.mailgun.org"
-    }
-  }
+  console.log(req.originalHandler)
 
   const transporter = nodemailer.createTransport({
 
@@ -23,10 +17,10 @@ module.exports = (req, res) => {
   })
 
   transporter.sendMail({
-      from : "gabrielnascimento_17@hotmail.com",
-      to : "gabrielnascimento_17@hotmail.com",
+      from : "noreply@costumermanagement.online.com",
+      to : email,
       replyTo : process.env.USER_EMAIL,
-      subject : "no reply",
+      subject : "Alteração de Senha",
       html :  
         `
         <!DOCTYPE HTML>
@@ -34,8 +28,11 @@ module.exports = (req, res) => {
         <head>
         </head>
         <body>
+          <p>Olá, caro usuário.</p>
+          <p>Sua senha de acesso ao nosso sistema foi alterada.</p>
+          <p>Sua nova senha é: <h5>${senha}</strong></h5>
           <a href="https://costumer-management.herokuapp.com/usuario/login" target="_blank">
-            <button>Confirmar e-mail e fazer Login</button>
+            <button>Fazer Login</button>
           </a>
         </body>
         </html>
@@ -44,10 +41,10 @@ module.exports = (req, res) => {
     })
 
     .then((info) => {
-      res.send(info)
+      console.log("Enviado com sucesso." + info)
     })
 
     .catch((error) => {
-      res.send(error)
+      console.log(error)
     })
 }

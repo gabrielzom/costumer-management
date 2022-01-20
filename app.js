@@ -12,7 +12,7 @@ const passport = require("passport")
 require("./config/auth")(passport)
 require("dotenv").config();
 
-var um_dia = 86400000
+var um_dia = 86400000;
 
 app.use(session({
   secret : process.env.KEY,

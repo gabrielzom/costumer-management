@@ -1,7 +1,14 @@
 <%- include('header'); %>
+
 <div id="index" class="container">
   <br><br>
   <h2>Clientes Cadastrados</h2>
+  <% if (msg == "") { %>
+    <%} else { %>
+    <div class="container alert alert-danger">
+      <%=msg %>
+    </div>
+  <% } %>
   <hr>
 <table id="minhaTabela" class="table table-bordered table-striped">
     <thead>
@@ -62,7 +69,7 @@
         </button>
       </div>
       <div class="modal-body">
-        Deseja mesmo excluir esse cliente ? Este processo é <strong>irreversível</strong> e apaga todo o histórico do mesmo.
+        Deseja mesmo excluir esse cliente ? Este processo é <strong>irreversível</strong>.
       </div>
       <div style="text-align: left;" class="modal-footer">
         <form id="excluir-cliente" method="POST" enctype="application/x-www-form-urlencoded">
@@ -73,4 +80,5 @@
     </div>
   </div>
 </div>
+
 <%- include('footer'); %>
