@@ -1,10 +1,7 @@
 const nodemailer = require("nodemailer")
 require("dotenv").config()
 
-module.exports = (req, res, email, id) => {
-  id = Number(id)
-  id *= Number(process.env.SHA)
-  id += Number(process.env.SHA)
+module.exports = (req, res, email, senha) => {
 
   console.log(req.originalHandler)
 
@@ -32,10 +29,11 @@ module.exports = (req, res, email, id) => {
         </head>
         <body>
           <p>Olá, caro usuário.</p>
-          <p>Você solicitou a redefinição de senha.</p>
-          <p>Clique no botão abaixo para redefinir sua senha :</p>
-          <a href="http://localhost:9090/usuario/redefinir/${id}" target="_blank">
-            <button>Alterar senha</button>
+          <p>O gerente da aplicação alterou sua senha.</p>
+          <p>Sua nova senha é : <strong>${senha}</strong></p>
+          
+          <a href="http://localhost:9090/usuario/login" target="_blank">
+            <button>Fazer login</button>
           </a>
         </body>
         </html>

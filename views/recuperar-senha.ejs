@@ -1,0 +1,27 @@
+<%- include('header'); %>
+  <div class="container">
+    <div class="row"> 
+      <div id="login" class="form-control">
+
+          <% if (msg=='') { %>
+          <%} else { %>
+            <div class="alert alert-danger">
+              <%=msg %>
+            </div>
+          <% } %>
+          <h2>Recuperação de senha</h2>
+          <p>Iremos enviar uma mensagem de recuperação de senha para o seu e-mail.</p>
+          <form action="/usuario/usuarioexists" method="POST" enctype="application/x-www-form-urlencoded">
+            <div class="form-floating mb-3">
+              <input name="email" type="email" class="form-control" id="floatingInput"
+              placeholder="name@example.com">
+              <label for="floatingInput">Informe-nos seu e-mail de cadastro</label>
+            </div>
+            <div>
+              <button type="submit" class="btn btn-primary">Enviar mensagem</button>
+            </div>
+          </form>
+      </div>
+    </div>
+  </div>
+  <%- include('footer'); %>

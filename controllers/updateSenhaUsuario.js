@@ -2,7 +2,7 @@ const usuarios = require('../models/usuarios')
 const { Op } = require('sequelize');
 const sequelize = require('../models/db');
 const Sequelize = require('sequelize');
-const sendMail = require('../email/sendEmail')
+const sendEmailForManager = require('../email/sendEmailForManager');
 require("dotenv").config()
 
 module.exports = (req, res) => {
@@ -38,7 +38,7 @@ module.exports = (req, res) => {
       )
       .then(() => {
         console.log("-- correct update on usuario.")
-        sendMail(req, res, req.body.senha, req.body.email)
+        sendEmailForManager(req, res, req.body.email, req.body.senha)
         res.redirect("/usuario")
       })
       .catch(error => 

@@ -1,4 +1,7 @@
-
+function getParam() {
+  form = document.getElementById("form")
+  form.action = window.location.pathname + "?_method=PUT"
+}
 
 $("#btn-logout").on("click", () => {
   $("#modal-logout").modal("show");
@@ -26,4 +29,3 @@ function excluirHistorico(id) {
 $(".cancelar-excluir-historico").on("click", () => {
   $("#modal-excluir-historico").modal("hide");
 })
-

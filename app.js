@@ -39,7 +39,9 @@ app.use(express.json())
 app.use(express.urlencoded({extended : false}))
 
 app.use("/usuario", usuario)
+app.use("/usuario/redefinir", usuario)
 app.use("/usuario/alterar-senha", usuario)
+
 app.use("/clientes", cliente)
 app.use("/clientes/historico", cliente)
 app.use("/clientes/historico/incluir", cliente)

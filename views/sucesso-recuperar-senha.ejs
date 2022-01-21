@@ -1,0 +1,19 @@
+<%- include('header'); %>
+  <div class="container">
+    <div class="row"> 
+      <div id="login" class="form-control">
+        <% if (error=='') { %>
+        <%} else { %>
+          <div class="alert alert-danger">
+            <%=error %>
+          </div>
+        <% } %>
+        <h2>Verifique seu e-mail e altere sua senha</h2>
+          <div class="col-md-7">
+            <a href="/usuario/login"><button type="submit" class="btn btn-success">Fazer Sign In</button></a>
+            <a href="/usuario/login"><button type="submit" class="btn btn-primary">Voltar para Home</button></a>
+          </div>      
+      </div>
+    </div>
+  </div>
+  <%- include('footer'); %>
