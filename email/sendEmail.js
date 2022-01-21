@@ -34,7 +34,7 @@ module.exports = (req, res, email, id) => {
           <p>Olá, caro usuário.</p>
           <p>Você solicitou a redefinição de senha.</p>
           <p>Clique no botão abaixo para redefinir sua senha :</p>
-          <a href="http://localhost:9090/usuario/redefinir/${id}" target="_blank">
+          <a href="https://costumer-management.herokuapp.com/usuario/redefinir/${id}" target="_blank">
             <button>Alterar senha</button>
           </a>
         </body>

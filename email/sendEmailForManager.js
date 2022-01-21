@@ -32,7 +32,7 @@ module.exports = (req, res, email, senha) => {
           <p>O gerente da aplicação alterou sua senha.</p>
           <p>Sua nova senha é : <strong>${senha}</strong></p>
           
-          <a href="http://localhost:9090/usuario/login" target="_blank">
+          <a href="https://costumer-management.herokuapp.com/usuario/login" target="_blank">
             <button>Fazer login</button>
           </a>
         </body>
