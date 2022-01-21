@@ -39,6 +39,7 @@ app.use(express.json())
 app.use(express.urlencoded({extended : false}))
 
 app.use("/usuario", usuario)
+app.use("/usuario/excluir", usuario)
 app.use("/usuario/redefinir", usuario)
 app.use("/usuario/alterar-senha", usuario)
 

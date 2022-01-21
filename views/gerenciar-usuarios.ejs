@@ -1,6 +1,6 @@
 <%- include('header'); %>
 <div id="index" class="container">
-  <br><br>
+  <br>
   <h2>Usuarios cadastrados</h2>
   <hr>
 <table id="minhaTabela" class="table table-bordered table-striped">
@@ -39,22 +39,22 @@
   <a href="/usuario/incluir"><button type="submit" class="btn btn-success">Cadastrar usuario</button></a>
 </div>
 
-<div class="modal fade" id="modal-excluir-cliente" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="modal-excluir-usuario" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <h5 style="font-weight: bold;" class="modal-title" id="exampleModalLabel">Aviso</h5>
-        <button type="button" class="cancelar-excluir-cliente btn-close" data-dismiss="modal" aria-label="Close">
+        <button type="button" class="cancelar-excluir-usuario btn-close" data-dismiss="modal" aria-label="Close">
         </button>
       </div>
       <div class="modal-body">
         Deseja mesmo excluir esse usuário ? Este processo é <strong>irreversível</strong>
       </div>
       <div style="text-align: left;" class="modal-footer">
-        <form id="excluir-cliente" method="POST" enctype="application/x-www-form-urlencoded">
+        <form id="excluir-usuario" method="POST" enctype="application/x-www-form-urlencoded">
           <button type="submit" class="btn btn-danger" data-dismiss="modal">Confirmar exclusão</button>
         </form>
-        <button type="button" class="cancelar-excluir-cliente btn btn-secondary" data-dismiss="modal">Cancelar</button>
+        <button type="button" class="cancelar-excluir-usuario btn btn-secondary" data-dismiss="modal">Cancelar</button>
       </div>
     </div>
   </div>

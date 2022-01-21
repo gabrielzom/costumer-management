@@ -29,3 +29,13 @@ function excluirHistorico(id) {
 $(".cancelar-excluir-historico").on("click", () => {
   $("#modal-excluir-historico").modal("hide");
 })
+
+
+function excluirUsuario(id) {
+  document.querySelector("#excluir-usuario").setAttribute("action",`/usuario/excluir/${id}?_method=DELETE`)
+  $("#modal-excluir-usuario").modal("show");
+}
+
+$(".cancelar-excluir-usuario").on("click", () => {
+  $("#modal-excluir-usuario").modal("hide");
+})

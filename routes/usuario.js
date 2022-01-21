@@ -3,6 +3,7 @@ const usuario = express.Router();
 const passport = require("passport");
 const selectUsuarios = require("../controllers/selectUsuarios")
 const insertUsuario = require("../controllers/insertUsuario")
+const deleteUsuarioById = require("../controllers/deleteUsuarioById")
 const selectUsuarioById = require("../controllers/selectUsuarioById")
 const updateSenhaUsuario = require("../controllers/updateSenhaUsuario")
 const updateSenha = require("../controllers/updateSenha")
@@ -13,11 +14,12 @@ usuario.use(express.static("public"))
 
 usuario.get("/", isManager, selectUsuarios)
 
-usuario.get("/recuperarsenha", (req, res) => { res.render("recuperar-senha", {msg : ''}) })
+usuario.get("/recuperarsenha", (req, res) => { res.render("recuperar-senha", { msg : ''}) })
 usuario.post("/usuarioexists", selectUsuarioByEmail)
 usuario.get("/sucesso", (req, res) => {res.render("sucesso-recuperar-senha")})
 usuario.get("/redefinir/:id", (req, res) => {res.render("redefinir-senha")})
 usuario.put("/redefinir/:id", updateSenha)
+usuario.delete("/excluir/:id", deleteUsuarioById)
 
 usuario.get("/incluir", isManager, (req, res) => { res.render("incluir-usuario", { message : '' }) })
 usuario.post("/incluir", isManager, insertUsuario)
