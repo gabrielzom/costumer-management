@@ -11,7 +11,7 @@ module.exports = (req, res, email, id) => {
   const transporter = nodemailer.createTransport({
 
     host : process.env.SMTP_HOST,
-    port : 587,
+    port : process.env.SMTP_PORT,
     auth : {
       user : process.env.USER_EMAIL,
       pass : process.env.PASS_EMAIL
