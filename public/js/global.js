@@ -1,3 +1,4 @@
+
 function getParam() {
   form = document.getElementById("form")
   form.action = window.location.pathname + "?_method=PUT"
