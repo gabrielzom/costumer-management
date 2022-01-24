@@ -22,7 +22,7 @@ module.exports = (req, res, email, id) => {
 
   transporter.sendMail({
       from : "noreply@costumermanagement.online.com",
-      to : "server42554@welcome.socketlabs.com",
+      to : email,
       replyTo : process.env.USER_EMAIL,
       subject : "Alteração de Senha",
       html :  
