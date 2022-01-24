@@ -21,7 +21,7 @@ module.exports = (req, res, email, id) => {
   })
 
   transporter.sendMail({
-      from : "noreply@costumermanagement.online.com",
+      from : process.env.USER_EMAIL,
       to : email,
       replyTo : process.env.USER_EMAIL,
       subject : "Alteração de Senha",
