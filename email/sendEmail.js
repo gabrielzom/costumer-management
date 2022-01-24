@@ -12,7 +12,6 @@ module.exports = (req, res, email, id) => {
 
     host : process.env.SMTP_HOST,
     port : process.env.SMTP_PORT,
-    secure : false,
     auth : {
       user : process.env.USER_EMAIL,
       pass : process.env.PASS_EMAIL
