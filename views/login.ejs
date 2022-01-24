@@ -6,10 +6,12 @@
           <% if (error=='') { %>
           <%} else { %>
             <div class="alert alert-danger">
-              <%=error %>
+              <%=error %> 
             </div>
+            
           <% } %>
           <h2>Login</h2>
+       
           <form action="/usuario/login" method="POST" enctype="application/x-www-form-urlencoded">
             <div class="form-floating mb-3">
               <input name="email" type="email" class="form-control" id="floatingInput"
