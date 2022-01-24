@@ -2,6 +2,9 @@
   "name": "crud-cliente",
   "version": "1.0.0",
   "description": "sistema de cadastro de clientes",
+  "engines": {
+    "node": "16.x"
+  },
   "main": "app.js",
   "scripts": {
     "start": "node app.js"
@@ -13,7 +16,6 @@
     "nodemon": "^2.0.15"
   },
   "dependencies": {
-    "node" :"16.13.2",
     "body-parser": "^1.19.0",
     "connect-flash": "^0.1.1",
     "cookie-parser": "^1.4.6",
