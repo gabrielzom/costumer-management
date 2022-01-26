@@ -20,7 +20,7 @@ cliente.use(express.static("public"))
 cliente.get("/historico/:id", isConsulting, selectHistoricoById)
 cliente.get("/historico/incluir/:id", isOperator, selectClienteForInsertHistorico)
 cliente.post("/historico/incluir/:id", isOperator, insertHistoricoCliente)
-cliente.post("/historico/editar/:id", isManager, selectHistoricoForEdit)
+cliente.get("/historico/editar/:id", isManager, selectHistoricoForEdit)
 cliente.put("/historico/editar/:id", isManager, updateHistorico)
 cliente.delete("/historico/excluir/:id", isManager, deleteHistoricoById)
 

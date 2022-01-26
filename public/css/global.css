@@ -135,4 +135,13 @@
   box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
 }
 
+.a-delete {
+  border : none;
+  color: rgb(13, 96, 251);
+  text-decoration: underline;
+  padding-left: 0.8px;
+  padding-right: 0.8px;}
 
+.a-delete:hover {
+  color: rgb(46, 100, 199);
+}

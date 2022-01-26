@@ -1,7 +1,7 @@
 <%- include('header'); %>
 <div id="index" class="container">
   <br>
-  <h2>Usuarios cadastrados</h2>
+  <h2>USUÁRIOS CADASTRADOS</h2>
   <hr>
 <table id="minhaTabela" class="table table-bordered table-striped">
     <thead>
@@ -11,7 +11,6 @@
         <th scope="col">E-mail</th>
         <th scope="col">Permissão</th>
         <th scope="col">Criação</th>
-        <th scope="col"></th>
         <th scope="col"></th>
       </tr>
     </thead>
@@ -25,12 +24,8 @@
         <td><%= usuarios[i].permissao %></td>
         <td class="moment" ><%= usuarios[i].createdAt %></td>
           <td>
-            <a href="/usuario/alterar-senha/<%=usuarios[i].id %>">
-              <button type="submit" class="btn btn-warning">Alterar senha</button>
-            </a>
-          </td>
-          <td>
-              <button value="<%=usuarios[i].id %>" onclick="excluirUsuario(this.value)" type="submit" class="btn btn-danger">Excluir usuario</button>
+            <a href="/usuario/alterar-senha/<%=usuarios[i].id %>">Alterar senha</a> |
+            <button value="<%=usuarios[i].id %>" onclick="excluirUsuario(this.value)" type="submit" class="a-delete">Excluir usuário</button>
           </td>
       </tr>
     <% } %>

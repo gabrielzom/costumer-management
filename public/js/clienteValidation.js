@@ -2,6 +2,13 @@ $(document).ready(function() {
   $("#valor").mask("000.000,00" , {
     reverse : true
   })
+
+  if ($("#cpf_cnpj").text().length >= 14) {
+    $("#cpf_cnpj").mask("00.000.000/0000-00")
+
+  } else {
+    $("#cpf_cnpj").mask("000.000.000-0000")
+  }
 })
 
 $("#cnpj_cpf").on("keypress", function(){
@@ -10,6 +17,7 @@ $("#cnpj_cpf").on("keypress", function(){
       $(this).mask("00.000.000/0000-00")
     }
 })
+
 
 $("#telefone").on("keypress", function(){
   $(this).mask("(00) 0000-00000")

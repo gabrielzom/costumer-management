@@ -1,9 +1,19 @@
 <%- include('header'); %>
 <div id="index" class="container">
   <br>
-  <h2>Historico de <%=cliente[0].nome %></h2>
-  <h5><a href="/clientes"> Voltar para clientes</a></h5>
+  <h2>DETALHES DO CLIENTE</h2>
+  <br>
+  <h5>Nome/Razão social: </h5> <p><%=cliente[0].nome %></p>
+  <h5>CPF/CNPJ:</h5> <p id="cpf_cnpj"><%=cliente[0].cnpj_cpf %></p>
+  <h5>Telefone:</h5> <p><%=cliente[0].telefone %></p>
+  <h5>E-mail:</h5> <p><%=cliente[0].email %></p>
+  <h5>Contato:</h5> <p><%=cliente[0].contato %></p>
+  <h5>Cliente desde:</h5> <p class="moment"><%=cliente[0].data_cadastro %></p>
+  <h5>Cliente ativo:</h5> <p><%=cliente[0].ativo %></p>
   <hr>
+  <h5><a style="text-decoration: none;" href="/clientes"> < Voltar para lista de Clientes</a></h5>
+  <hr>
+  <h2>HISTÓRICO</h2>
 <table id="minhaTabela" class="table table-bordered table-striped">
     <thead>
       <tr>
@@ -11,9 +21,6 @@
         <th scope="col">Informações</th>
         <th scope="col">Data</th>
         <th scope="col">Valor</th>
-        <th scope="col">E-mail</th>
-        <th scope="col">Telefone</th>
-        <th scope="col"></th>
         <th scope="col"></th>
       </tr>
     </thead>
@@ -34,16 +41,9 @@
           }) %>
           </td>
         <% } %>
-        <td><%= cliente[0].email %></td>
-        <td><%= cliente[0].telefone %></td>
           <td>
-            <form action="/clientes/historico/editar/<%=historico[i].id %>" method="POST" enctype="application/x-www-form-urlencoded">
-              <button type="submit" class="btn btn-warning">Editar Registro</button>
-            </form>
-          </td>
-
-          <td>
-            <button value="<%=historico[i].id %>" onclick="excluirHistorico(this.value)" type="submit" class="btn btn-danger">Excluir Registro</button>
+            <a href="/clientes/historico/editar/<%=historico[i].id %>">Editar</a> |
+            <button value="<%=historico[i].id %>" onclick="excluirHistorico(this.value)" type="submit" class="a-delete">Excluir</button>
           </td>
       </tr>
     <% } %>
