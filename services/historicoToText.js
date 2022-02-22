@@ -27,7 +27,7 @@ module.exports = async (req, res) => {
 
     let fileName = date+'-'+cliente.nome+'-'+cliente.id+'.txt';
 
-    fs.writeFile('./history/'+fileName, text, 'utf-8', (error) => {
+    fs.writeFileSync('./history/'+fileName, text, 'utf-8', (error) => {
         if (error) {
             throw error;
         } else {
