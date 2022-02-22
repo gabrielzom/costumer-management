@@ -11,6 +11,7 @@ const selectClienteForInsertHistorico = require("../controllers/selectClienteFor
 const selectHistoricoForEdit = require("../controllers/selectHistoricoForEdit")
 const updateHistorico = require("../controllers/updateHistorico")
 const deleteHistoricoById = require("../controllers/deleteHistoricoById")
+const historicoToText = require("../services/historicoToText")
 const { isConsulting } = require("../helpers/isConsulting");
 const { isOperator } = require("../helpers/isOperator");
 const { isManager } = require("../helpers/isManager");
@@ -18,6 +19,7 @@ const { isManager } = require("../helpers/isManager");
 cliente.use(express.static("public"))
 
 cliente.get("/historico/:id", isConsulting, selectHistoricoById)
+cliente.get("/historico/totext/:id", isConsulting, historicoToText)
 cliente.get("/historico/incluir/:id", isOperator, selectClienteForInsertHistorico)
 cliente.post("/historico/incluir/:id", isOperator, insertHistoricoCliente)
 cliente.get("/historico/editar/:id", isManager, selectHistoricoForEdit)
