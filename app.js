@@ -8,11 +8,15 @@ const session = require("express-session")
 const flash = require("connect-flash")
 const app = express();
 const passport = require("passport")
+const fs = require("fs")
+var um_dia = 86400000;
+
+
 
 require("./config/auth")(passport)
 require("dotenv").config();
 
-var um_dia = 86400000;
+
 
 app.use(session({
   secret : process.env.KEY,

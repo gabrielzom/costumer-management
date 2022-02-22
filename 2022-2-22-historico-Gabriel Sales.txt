@@ -1,3 +1,0 @@
-Gabriel Sales;2022-2-22
-2022-02-15;Pagamento;100.00
-2022-02-22;Teste sem valor;0.00

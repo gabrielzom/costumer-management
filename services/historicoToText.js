@@ -1,13 +1,15 @@
 const fs = require('fs');
 const historicos = require('../models/historico');
 const clientes = require('../models/clientes');
-const http = require('http');
-var path = require('path');
-var mime = require('mime');
+
 
 module.exports = async (req, res) => {
     let date = new Date()
-    date = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`
+    let month = "";
+
+    date.getMonth() < 10 ? month = "0" + (date.getMonth() + 1).toString() : month = (date.getMonth() + 1).toString();
+
+    date = `${date.getFullYear()}-${month}-${date.getDate()}`
     let text = "";
 
     const historico = await historicos.findAll({ 
@@ -23,17 +25,16 @@ module.exports = async (req, res) => {
         text+=`${row.dataValues.data_pagamento};${row.dataValues.informacoes};${row.dataValues.valor}\n`
     })
 
-    console.log(text);
+    let fileName = date+'-'+cliente.nome+'-'+cliente.id+'.txt';
 
-    let fileName = date+'-historico-'+cliente.nome;
-
-    fs.writeFile(fileName, text, (error) => {
+    fs.writeFile('./history/'+fileName, text, 'utf-8', (error) => {
         if (error) {
             throw error;
         } else {
-            console.log("success !");
+            console.log(text);
         }
     })
-
-    res.sendFile(path.resolve('./', fileName))
+    
+    res.type('text').download(`./history/${fileName}`)
+    
 } 
