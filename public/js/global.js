@@ -40,3 +40,7 @@ function excluirUsuario(id) {
 $(".cancelar-excluir-usuario").on("click", () => {
   $("#modal-excluir-usuario").modal("hide");
 })
+
+$("#btn-close-msg").on("click", () => {
+  $(".container").remove("#div-msg-warning")
+})
