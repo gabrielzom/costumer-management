@@ -1,0 +1,6 @@
+Gabriel Sales;2022-02-22
+2021-09-01;virou cliente;0.00
+2021-11-15;Pagamento nov/21;350.00
+2021-12-14;Pagamento dez/21;300.00
+2022-01-13;Pagamento jan/22;500.00
+2022-02-15;Pagamento fev/21;100.00

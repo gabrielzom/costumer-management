@@ -40,10 +40,14 @@
               </li>
             </ul>
             <% if (user == null) { %>
-              <a href="/usuario/login"><button class="btn btn-outline-success" style="margin-top: 5px;" type="submit">Sign In</button></a>
+              <a href="/usuario/login"><button class="btn btn-outline-success" style="margin-top: 5px;" type="submit">Sign In <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-90deg-up" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M4.854 1.146a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L4 2.707V12.5A2.5 2.5 0 0 0 6.5 15h8a.5.5 0 0 0 0-1h-8A1.5 1.5 0 0 1 5 12.5V2.707l3.146 3.147a.5.5 0 1 0 .708-.708l-4-4z"/>
+              </svg></button></a>
             <%} else { %>
                 <div style="color: white; margin-right: 25px; margin-top: 8px;" >Bem vindo, <h5 style="font-size: 15px;"><%=user.nome %></h5></div>
-                <button id="btn-logout" class="btn btn-outline-danger" style="margin-right: 10px; margin-top: 5px;" type="submit">Sign Out</button>
+                <button id="btn-logout" class="btn btn-outline-danger" style="margin-right: 10px; margin-top: 5px;" type="submit">Sign Out <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-bar-right" viewBox="0 0 16 16">
+                  <path fill-rule="evenodd" d="M6 8a.5.5 0 0 0 .5.5h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L12.293 7.5H6.5A.5.5 0 0 0 6 8zm-2.5 7a.5.5 0 0 1-.5-.5v-13a.5.5 0 0 1 1 0v13a.5.5 0 0 1-.5.5z"/>
+                </svg></button>
             <% } %>
           </div>
         </div>

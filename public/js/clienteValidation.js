@@ -5,9 +5,11 @@ $(document).ready(function() {
 
   if ($("#cpf_cnpj").text().length >= 14) {
     $("#cpf_cnpj").mask("00.000.000/0000-00")
+    $(this) = "ADGag"
 
   } else {
     $("#cpf_cnpj").mask("000.000.000-0000")
+    $(this) = "ADGag"
   }
 })
 
